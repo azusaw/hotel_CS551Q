@@ -7,7 +7,7 @@ INSERT INTO disaster_continent (id) VALUES
 ;
 
 
-INSERT INTO disaster_region (id, continent) VALUES
+INSERT INTO disaster_region (id, continent_id) VALUES
 	 ('Western Africa','Africa'),
 	 ('Southern Africa','Africa'),
 	 ('Eastern Africa','Africa'),
@@ -31,3 +31,32 @@ INSERT INTO disaster_region (id, continent) VALUES
 	 ('Micronesia','Oceania'),
 	 ('Polynesia','Oceania')
 ;
+
+INSERT INTO disaster_type (id) VALUES
+	 ('Flood'),
+	 ('Storm'),
+	 ('Drought'),
+	 ('Animal accident'),
+	 ('Eathquake'),
+	 ('Epidemic'),
+	 ('Extreme temprature'),
+	 ('Glacial lake outbrust'),
+	 ('Impact'),
+	 ('Insect infestation'),
+	 ('Landslide'),
+	 ('Mass movement (dry)'),
+	 ('Volcanic activity'),
+	 ('Wildfire')
+;
+
+INSERT INTO disaster_subgroup (id) VALUES
+	 ('Hydrogical'),
+	 ('Meteological'),
+	 ('Climatological'),
+	 ('Geophysical'),
+	 ('Biological'),
+	 ('Extra-terrestrial')
+;
+
+
+

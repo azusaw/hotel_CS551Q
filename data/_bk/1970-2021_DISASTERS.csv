@@ -1,4 +1,4 @@
-disasterNo,year,seq,group,subgroup,type,subtype,eventName,country,iso,region,continent,location,startYear,startMonth,startDay,endYear,endMonth,endDay,totalDeaths,injured,Affected,homeless,totalAffected,damageCost
+disasterNo,year,seq,group,subgroup_id,type_id,subtype,eventName,country,iso,region_id,continent_id,location,startYear,startMonth,startDay,endYear,endMonth,endDay,totalDeaths,injured,Affected,homeless,totalAffected,damageCost
 1970-0013-ARG,1970,13,Natural,Hydrological,Flood,,,Argentina,ARG,South America,Americas,Mendoza,1970,1,4,1970,1,4,36,,,,,25000
 1970-0109-AUS,1970,109,Natural,Meteorological,Storm,Tropical cyclone,Ada,Australia,AUS,Australia and New Zealand,Oceania,Queensland,1970,1,,1970,1,,13,,,,,72475
 1970-0044-BEN,1970,44,Natural,Hydrological,Flood,,,Benin,BEN,Western Africa,Africa,Atacora region,1970,9,,1970,9,,,,,,,200
