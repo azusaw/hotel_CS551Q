@@ -1,8 +1,8 @@
 body {
     font-family: 'Quicksand', sans-serif;
-    background-color: darkcyan;
+    background-color: linen;
     margin: 0 auto;
-    color: lightcyan;
+    color: orangered;
     font-size: 16px;
     padding-bottom: 3rem;
 }
@@ -51,36 +51,50 @@ iframe {
 .title {
     font-size: 28px;
     font-weight: bold;
-    color: darkcyan;
+    color: white;
     text-align: center;
     padding: 2rem 0;
-    background-color: #fefffe;
+    background-color: orangered;
     border-radius: 0 0 15px 15px;
     margin-bottom: 2rem;
 }
 
 .nav-item {
-    font-size: 18px;
-    color: lightcyan;
-    letter-spacing: 1px;
-}
-.nav-item:hover {
-    font-weight: 600;
-    color: darkcyan;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.3s ease;
 }
 
+.nav-item:hover {
+    cursor: pointer;
+    background-color: orangered;
+}
+
+.nav-link {
+    font-size: 18px;
+    color: orangered;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    font-weight: 600;
+    color: white;
+}
+
+
 .nav-tabs-border-color {
-    color: lightcyan;
+    color: orangered;
 }
 
 .table {
     color: #666666;
     background-color: white;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .table-header {
-    color: darkcyan;
+    background-color: orangered;
+    color: white;
     text-align: center;
 }
 

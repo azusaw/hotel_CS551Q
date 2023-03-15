@@ -1,23 +1,27 @@
 <table class="table align-middle my-3">
     <thead class="table-header">
     <tr>
-        <th scope="col">DisasterNo</th>
         <th scope="col">Year</th>
         <th scope="col">Seq</th>
         <th scope="col">Group</th>
         <th scope="col">SubGroup</th>
-        <th scope="col">Source</th>
+        <th scope="col">Continent</th>
+        <th scope="col">Region</th>
+        <th scope="col">Country</th>
+        <th scope="col">DamageCost</th>
     </tr>
     </thead>
     <tbody>
     {% for row in rows %}
     <tr>
-        <td class="bold">{{row["time"]}}</td>
-        <td>{{row['depth']}}</td>
-        <td>{{row['mag']}}</td>
-        <td>{{row['magType']}}</td>
-        <td>{{row['place']}}</td>
-        <td>{{row['name']}}</td>
+        <td>{{row.year}}</td>
+        <td>{{row.seq}}</td>
+        <td>{{row.group}}</td>
+        <td>{{row.subgroup}}</td>
+        <td>{{row.continent}}</td>
+        <td>{{row.region}}</td>
+        <td>{{row.country}}</td>
+        <td>{{row.damageCost}}</td>
     </tr>
     {% endfor %}
     </tbody>

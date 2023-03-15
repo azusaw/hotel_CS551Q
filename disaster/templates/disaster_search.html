@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block page_content %}
+<h1>Search Data by Conditions</h1>
+<form action="/search" method="post" id="search" class="row">
+    <div class="col-sm-12 my-2">
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" class="form-control"
+               placeholder="Australia / Brazil / Canada ...">
+    </div>
+    <div class="col-sm-6 my-2">
+        <label for="continent">Continent</label>
+        <select id="continent" name="continent" class="form-control">
+            <option value=''>All</option>
+            {% for continent in continents %}
+            <option value={{continent.id}}>{{continent.id}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-sm-6 my-2">
+        <label for="region">Region</label>
+        <select id="region" name="region" class="form-control">
+            <option value=''>All</option>
+            {% for region in regions %}
+            <option value={{region.id}}>{{region.id}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-sm-6 my-2">
+        <label for="type">Type</label>
+        <select id="type" name="type" class="form-control">
+            <option value=''>All</option>
+            {% for type in types %}
+            <option value={{type.id}}>{{type.id}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-sm-6 my-2">
+        <label for="subgroup">Subgroup</label>
+        <select id="subgroup" name="subgroup" class="form-control">
+            <option value=''>All</option>
+            {% for subgroup in subgroups %}
+            <option value={{subgroup.id}}>{{subgroup.id}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-sm-6 my-2">
+        <label for="order">Order By</label>
+        <select id="order" name="order" class="form-control">
+            <option value='year asc'>Year - Asc</option>
+            <option value='year desc'>Year - Desc</option>
+            <option value='totalDeaths asc'>Total Deaths - Asc</option>
+            <option value='totalDeaths desc'>Total Deaths - Desc</option>
+            <option value='damageCost asc'>Damage Cost - Asc</option>
+            <option value='damageCost desc'>Damage Cost - Desc</option>
+        </select>
+    </div>
+    <div class="align-center">
+        <input type="submit" class="btn btn-lg btn-warning my-6" value="Search">
+    </div>
+</form>
+{% if rows %}
+{% include 'disaster_table.html' with rows=disasters %}
+{% endif %}
+{% endblock %}
