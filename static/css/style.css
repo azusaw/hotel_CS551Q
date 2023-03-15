@@ -1,0 +1,93 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: darkcyan;
+    margin: 0 auto;
+    color: lightcyan;
+    font-size: 16px;
+    padding-bottom: 3rem;
+}
+
+h1 {
+    text-align: center;
+    margin: 4rem 0;
+    line-height: 4.5rem;
+}
+
+h3 {
+    text-align: center;
+    margin: 5rem 0 3rem;
+}
+
+p {
+    padding: 1rem 0;
+    line-height: 2.8rem;
+}
+
+a {
+    color: inherit;
+    decoration: none;
+}
+
+a:hover, a:visited {
+    color: inherit;
+}
+
+th {
+    text-align:center;
+}
+
+img {
+    margin: 2rem 0;
+}
+
+iframe {
+    margin: 3rem 0;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: bold;
+    color: darkcyan;
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #fefffe;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 2rem;
+}
+
+.nav-item {
+    font-size: 18px;
+    color: lightcyan;
+    letter-spacing: 1px;
+}
+.nav-item:hover {
+    font-weight: 600;
+    color: darkcyan;
+}
+
+.nav-tabs-border-color {
+    color: lightcyan;
+}
+
+.table {
+    color: #666666;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.table-header {
+    color: darkcyan;
+    text-align: center;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.btn {
+    width: 500px;
+}

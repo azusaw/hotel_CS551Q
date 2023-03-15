@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/space.css' %}">
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="title">Earthquakes in the world 🌎 Feb 2023</div>
+        <ul class="nav nav-tabs nav-justified">
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa-solid fa-house mr-1"></i>
+                    home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa-solid fa-earth-americas mr-1"></i>
+                    all data
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" >
+                    <i class="fa-solid fa-magnifying-glass mr-1"></i>
+                    search
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa-solid fa-ranking-star mr-1"></i>
+                    ranking
+                </a>
+            </li>
+        </ul>
+    </div>
+    {% block content %}
+        <div class="container">
+            {% block page_content %}
+            {% endblock %}
+        </div>
+    {% endblock %}
+</body>
+</html>

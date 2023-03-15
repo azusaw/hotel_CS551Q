@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block page_content %}
+<h1>All Earthquake Data</h1>
+{% for row in disasters %}
+<div>
+    <b> {{row.disasterNo }}</b>
+    {{ row.year }} | {{ row.seq }}
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+<table class="table align-middle my-3">
+    <thead class="table-header">
+    <tr>
+        <th scope="col">DisasterNo</th>
+        <th scope="col">Year</th>
+        <th scope="col">Seq</th>
+        <th scope="col">Group</th>
+        <th scope="col">SubGroup</th>
+        <th scope="col">Source</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in rows %}
+    <tr>
+        <td class="bold">{{row["time"]}}</td>
+        <td>{{row['depth']}}</td>
+        <td>{{row['mag']}}</td>
+        <td>{{row['magType']}}</td>
+        <td>{{row['place']}}</td>
+        <td>{{row['name']}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>

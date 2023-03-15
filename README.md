@@ -12,3 +12,16 @@ I've added mine
 @kksaki SUN JIAQ
 @Philip UKWAMEDUAPHILIP CHUKA
 @t21ka22 AGYENIM BOKOFI
+
+# For Start Server
+
+```commandline
+# create files for migration after editing models
+python3 manage.py makemigrations
+
+# execute migration
+python3 manage.py migrate
+
+# run server
+python3 manage.py runserver 8000
+```
