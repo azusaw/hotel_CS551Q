@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block page_content %}
 <h1>Search Data by Conditions</h1>
-<form action="/search" method="post" id="search" class="row">
+<form action="{% url 'search' %}" method="get" 　id="search" class="row">
     <div class="col-sm-12 my-2">
         <label for="country">Country</label>
         <input type="text" id="country" name="country" class="form-control"
@@ -46,19 +46,19 @@
     <div class="col-sm-6 my-2">
         <label for="order">Order By</label>
         <select id="order" name="order" class="form-control">
-            <option value='year asc'>Year - Asc</option>
-            <option value='year desc'>Year - Desc</option>
-            <option value='totalDeaths asc'>Total Deaths - Asc</option>
-            <option value='totalDeaths desc'>Total Deaths - Desc</option>
-            <option value='damageCost asc'>Damage Cost - Asc</option>
-            <option value='damageCost desc'>Damage Cost - Desc</option>
+            <option value='year'>Year - Asc</option>
+            <option value='-year'>Year - Desc</option>
+            <option value='totalDeaths'>Total Deaths - Asc</option>
+            <option value='-totalDeaths'>Total Deaths - Desc</option>
+            <option value='damageCost'>Damage Cost - Asc</option>
+            <option value='-damageCost'>Damage Cost - Desc</option>
         </select>
     </div>
     <div class="align-center">
         <input type="submit" class="btn btn-lg btn-warning my-6" value="Search">
     </div>
 </form>
-{% if rows %}
+{% if disasters %}
 {% include 'disaster_table.html' with rows=disasters %}
 {% endif %}
 {% endblock %}

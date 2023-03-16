@@ -22,5 +22,7 @@ def disaster_search(request):
     subgroups = Subgroup.objects.all()
     continents = Continent.objects.all()
     regions = Region.objects.all()
+    disasters = Disaster.objects.all().order_by("year" if "order" not in request.GET else request.GET['order'])
     return render(request, 'disaster_search.html',
-                  {'types': types, 'subgroups': subgroups, 'continents': continents, 'regions': regions})
+                  {'disasters': disasters, 'types': types, 'subgroups': subgroups, 'continents': continents,
+                   'regions': regions})
