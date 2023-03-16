@@ -1,25 +1,23 @@
 <table class="table align-middle my-3">
     <thead class="table-header">
     <tr>
+        <th scope="col">DisasterNo</th>
         <th scope="col">Year</th>
-        <th scope="col">Seq</th>
-        <th scope="col">Group</th>
-        <th scope="col">SubGroup</th>
+        <th scope="col">Type</th>
         <th scope="col">Continent</th>
         <th scope="col">Region</th>
         <th scope="col">Country</th>
-        <th scope="col">DamageCost</th>
+        <th scope="col">DamageCost($1K)</th>
     </tr>
     </thead>
     <tbody>
     {% for row in rows %}
     <tr>
+        <td><a href="{% url 'detail' disasterNo=row.disasterNo %}"><b>{{row.disasterNo}}</b></a></td>
         <td>{{row.year}}</td>
-        <td>{{row.seq}}</td>
-        <td>{{row.group}}</td>
-        <td>{{row.subgroup}}</td>
-        <td>{{row.continent}}</td>
-        <td>{{row.region}}</td>
+        <td>{{row.type.id}}</td>
+        <td>{{row.continent.id}}</td>
+        <td>{{row.region.id}}</td>
         <td>{{row.country}}</td>
         <td>{{row.damageCost}}</td>
     </tr>
