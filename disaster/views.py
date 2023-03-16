@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Disaster, Type, Subgroup, Continent, Region
 
@@ -7,6 +7,12 @@ def disaster_list(request):
     disasters = Disaster.objects.all()
 
     return render(request, 'disaster_list.html', {'disasters': disasters})
+
+
+def disaster_detail(request, disasterNo):
+    disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
+
+    return render(request, 'disaster_detail.html', {'disaster': disaster})
 
 
 def disaster_search(request):

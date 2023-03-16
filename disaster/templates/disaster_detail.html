@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block page_content %}
+<h1>Detail: {{disaster.disasterNo}}</h1>
+<table class="table align-middle my-3">
+    <tr>
+        <th scope="col">DisasterNo</th>
+        <td>{{disaster.disasterNo}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Year</th>
+        <td>{{disaster.year}}</td>
+    </tr>
+    <tr>
+        <th scope="col">SequenceNo</th>
+        <td>{{disaster.seq}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Group</th>
+        <td>{{disaster.group}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Subgroup</th>
+        <td>{{disaster.subgroup}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Type</th>
+        <td>{{disaster.type.id}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Subtype</th>
+        <td>{{disaster.subtype}}</td>
+    </tr>
+    <tr>
+        <th scope="col">EventName</th>
+        <td>{{disaster.eventName}}</td>
+    </tr>
+    <tr>
+        <th scope="col">ISO</th>
+        <td>{{disaster.iso}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Continent</th>
+        <td>{{disaster.continent.id}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Region</th>
+        <td>{{disaster.region.id}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Country</th>
+        <td>{{disaster.country}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Location</th>
+        <td>{{disaster.location}}</td>
+    </tr>
+    <tr>
+        <th scope="col">StartYear</th>
+        <td>{{disaster.startYear}}</td>
+    </tr>
+    <tr>
+        <th scope="col">StartMonth</th>
+        <td>{{disaster.startMonth}}</td>
+    </tr>
+    <tr>
+        <th scope="col">StartDay</th>
+        <td>{{disaster.startDay}}</td>
+    </tr>
+    <tr>
+        <th scope="col">EndYear</th>
+        <td>{{disaster.endYear}}</td>
+    </tr>
+    <tr>
+        <th scope="col">EndMonth</th>
+        <td>{{disaster.endMonth}}</td>
+    </tr>
+    <tr>
+        <th scope="col">EndDay</th>
+        <td>{{disaster.endDay}}</td>
+    </tr>
+    <tr>
+        <th scope="col">TotalDeaths</th>
+        <td>{{disaster.totalDeaths}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Injured</th>
+        <td>{{disaster.injured}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Affected</th>
+        <td>{{disaster.affected}}</td>
+    </tr>
+    <tr>
+        <th scope="col">TotalAffected</th>
+        <td>{{disaster.totalAffected}}</td>
+    </tr>
+    <tr>
+        <th scope="col">Homeless</th>
+        <td>{{disaster.homeless}}</td>
+    </tr>
+    <tr>
+        <th scope="col">DamageCost($1K)</th>
+        <td>{{disaster.damageCost}}</td>
+    </tr>
+</table>
+{% endblock %}
