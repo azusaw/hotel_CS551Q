@@ -1,4 +1,8 @@
-# hotel_CS551Q
+# Disaster information Website
+Team hotel_CS551Q
+
+## Website
+https://disaster-info.onrender.com/
 
 ## Member
 
