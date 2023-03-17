@@ -53,3 +53,20 @@
     color: orangered;
     font-weight: 500;
 }
+
+.text-box {
+    background-color: #d2ecfa;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.tag {
+    padding: 5px;
+    margin: 2em 0;
+    background-color: aliceblue;
+    border-radius: 5px;
+    font-size: 16px;
+    color: orangered;
+    font-weight: 500;
+    cursor: pointer;
+}
