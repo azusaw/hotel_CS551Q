@@ -35,7 +35,4 @@ python3 manage.py migrate
 ```commandline
 # create requirements.txt
 pip list --format=freeze > requirements.txt
-
-
-
 ```
