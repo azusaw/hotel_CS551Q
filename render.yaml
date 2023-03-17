@@ -5,6 +5,7 @@ services:
     region: singapore
     buildCommand: './build.sh'
     startCommand: 'gunicorn mysite.wsgi:application'
+    staticPublishPath: ./STATIC_ROOT
     plan: free
     branch: main
     healthCheckPath: /
