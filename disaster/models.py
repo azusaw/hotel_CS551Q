@@ -6,7 +6,7 @@ class Disaster(models.Model):
     year = models.IntegerField()
     seq = models.IntegerField()
     group = models.TextField()
-    subgroup = models.ForeignKey('Subgroup', on_delete=models.CASCADE)
+    subgroup = models.TextField()
     type = models.ForeignKey('Type', on_delete=models.CASCADE)
     subtype = models.TextField(null=True)
     eventName = models.TextField(null=True)
@@ -39,8 +39,4 @@ class Region(models.Model):
 
 
 class Type(models.Model):
-    id = models.TextField(primary_key=True)
-
-
-class Subgroup(models.Model):
     id = models.TextField(primary_key=True)
