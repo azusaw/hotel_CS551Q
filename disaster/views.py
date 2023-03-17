@@ -1,4 +1,4 @@
-from django.db.models import Q
+from django.db.models import Count, Q
 from django.shortcuts import render, get_object_or_404
 
 from .forms import SearchConditionForm
@@ -71,5 +71,14 @@ def search(request):
 
 
 def comparison(request):
-    disasters = Disaster.objects.all()
-    return render(request, 'comparison.html', {'disasters': disasters})
+    year_rows = Disaster.objects.values('year').annotate(count=Count('disasterNo')).order_by('year')
+    type_rows = Disaster.objects.values('type').annotate(count=Count('disasterNo')).order_by('-count')
+    continent_rows = Disaster.objects.values('continent').annotate(count=Count('disasterNo')).order_by('-count')
+    region_rows = Disaster.objects.values('region').annotate(count=Count('disasterNo')).order_by('-count')
+
+    return render(request, 'comparison.html', {
+        'year_rows': year_rows,
+        'type_rows': type_rows,
+        'continent_rows': continent_rows,
+        'region_rows': region_rows
+    })

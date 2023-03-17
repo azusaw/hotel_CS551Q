@@ -1,5 +1,86 @@
 {% extends "base.html" %}
 {% block page_content %}
 <h1>Comparison Disaster Data</h1>
-{% include 'disaster_table.html' with rows=disasters %}
+<h3>
+    <i class="fa-solid fa-star mr-1"></i>Year
+</h3>
+<table class="table align-middle my-3">
+    <thead class="table-header">
+    <tr>
+        <th scope="col">Year</th>
+        <th scope="col">Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in year_rows %}
+    <tr class="align-center">
+        <td><b>{{row.year}}</b></td>
+        <td>{{row.count}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h3>
+    <i class="fa-solid fa-star mr-1"></i>Continent
+</h3>
+<table class="table align-middle my-3">
+    <thead class="table-header">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Continent</th>
+        <th scope="col">Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in continent_rows %}
+    <tr class="align-center">
+        <td>{{forloop.counter}}</td>
+        <td><b>{{row.continent}}</b></td>
+        <td>{{row.count}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h3>
+    <i class="fa-solid fa-star mr-1"></i>Region
+</h3>
+<table class="table align-middle my-3">
+    <thead class="table-header">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Region</th>
+        <th scope="col">Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in region_rows %}
+    <tr class="align-center">
+        <td>{{forloop.counter}}</td>
+        <td><b>{{row.region}}</b></td>
+        <td>{{row.count}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<h3>
+    <i class="fa-solid fa-star mr-1"></i>Type
+</h3>
+<table class="table align-middle my-3">
+    <thead class="table-header">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Type</th>
+        <th scope="col">Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in type_rows %}
+    <tr class="align-center">
+        <td>{{forloop.counter}}</td>
+        <td><b>{{row.type}}</b></td>
+        <td>{{row.count}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
