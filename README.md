@@ -19,10 +19,27 @@ by Kaggle
 
 ## For Starting Server
 
+Create `.env` file in root directory with below contents.
+
+⚠️ DO NOT commit `.env` file into this repository.
+
+```.env
+DEBUG=True
+```
+
+Then, start the server with this command.
+
 ```commandline
+# install dependencies
+pip install -r requirements.txt
+
 # run server
 python3 manage.py runserver 8000
+```
 
+## When edit models
+
+```commandline
 # create files for migration after editing models
 python3 manage.py makemigrations
 
