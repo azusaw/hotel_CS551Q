@@ -1,19 +1,23 @@
 # hotel_CS551Q
-hotel group
-hotel name
-The last group member
-This is a test message for github
-This is SUN.
-I've added mine
- 
-# Member
-@azusaw AZUSA WATANABE
-@darryl484 ARUN DARRYL MATHEW
-@kksaki SUN JIAQ
-@Philip UKWAMEDUAPHILIP CHUKA
-@t21ka22 AGYENIM BOKOFI
 
-# For Start Server
+## Member
+
+`@azusaw` AZUSA WATANABE
+
+`@darryl484` ARUN DARRYL MATHEW
+
+`@kksaki` SUN JIAQ
+
+`@t21ka22` AGYENIM BOKOFI
+
+`@PhilipUkwamedua` UKWAMEDUAPHILIP CHUKA
+
+## Prepared Data
+
+[ALL NATURAL DISASTERS 1900-2021 / EOSDIS](https://www.kaggle.com/datasets/brsdincer/all-natural-disasters-19002021-eosdis)
+by Kaggle
+
+## For Starting Server
 
 ```commandline
 # create files for migration after editing models
