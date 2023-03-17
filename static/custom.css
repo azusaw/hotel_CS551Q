@@ -27,17 +27,13 @@
 
 .nav-link {
     font-size: 18px;
-    color: red;
+    color: white;
     letter-spacing: 1px;
 }
 
 .nav-link:hover {
     font-weight: 600;
     color: white;
-}
-
-.nav-tabs-border-color {
-    color: orangered;
 }
 
 .btn {
