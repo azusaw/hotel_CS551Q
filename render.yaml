@@ -1,0 +1,18 @@
+databases:
+  - name: disaster_db
+    databaseName: disaster_db
+    region: singapore
+    plan: free
+    user: user
+
+services:
+  - type: web
+    name: disaster-info
+    env: python
+    region: singapore
+    buildCommand: './build.sh'
+    startCommand: 'gunicorn mysite.wsgi:application'
+    plan: free
+    branch: main
+    healthCheckPath: /
+    autoDeploy: true

@@ -20,12 +20,22 @@ by Kaggle
 ## For Starting Server
 
 ```commandline
+# run server
+python3 manage.py runserver 8000
+
 # create files for migration after editing models
 python3 manage.py makemigrations
 
 # execute migration
 python3 manage.py migrate
+```
 
-# run server
-python3 manage.py runserver 8000
+## For deployment in render
+
+```commandline
+# create requirements.txt
+pip list --format=freeze > requirements.txt
+
+
+
 ```
