@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block page_content %}
+<h1>Comparison Disaster Data</h1>
+{% include 'disaster_table.html' with rows=disasters %}
+{% endblock %}

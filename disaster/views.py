@@ -11,7 +11,7 @@ def home(request):
 
 def disaster_list(request):
     disasters = Disaster.objects.all()
-    return render(request, 'disaster_list.html', {'disasters': disasters})
+    return render(request, 'all.html', {'disasters': disasters})
 
 
 def disaster_detail(request, disasterNo):
@@ -19,7 +19,8 @@ def disaster_detail(request, disasterNo):
     return render(request, 'disaster_detail.html', {'disaster': disaster})
 
 
-def disaster_search(request):
+def search(request):
+    disasters = []
     country = ''
     continent = ''
     region = ''
@@ -62,6 +63,13 @@ def disaster_search(request):
     if order != '':
         order = order
 
-    disasters = Disaster.objects.all().filter(*where).order_by(order)
+    # Do not show results in first access (without any conditions)
+    if len(request.GET) > 0:
+        disasters = Disaster.objects.all().filter(*where).order_by(order)
 
-    return render(request, 'disaster_search.html', {'disasters': disasters, 'form': form})
+    return render(request, 'search.html', {'disasters': disasters, 'form': form})
+
+
+def comparison(request):
+    disasters = Disaster.objects.all()
+    return render(request, 'comparison.html', {'disasters': disasters})
