@@ -57,9 +57,3 @@ python3 manage.py migrate
 # create requirements.txt
 pip list --format=freeze > requirements.txt
 ```
-
-## For run Testing
-
-```commandline
-python3 manage.py test
-```
