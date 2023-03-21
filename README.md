@@ -1,4 +1,8 @@
-# hotel_CS551Q
+# Disaster information Website
+Team hotel_CS551Q
+
+## Website
+https://disaster-info.onrender.com/
 
 ## Member
 
@@ -19,10 +23,27 @@ by Kaggle
 
 ## For Starting Server
 
+Create `.env` file in root directory with below contents.
+
+⚠️ DO NOT commit `.env` file into this repository.
+
+```.env
+DEBUG=True
+```
+
+Then, start the server with this command.
+
 ```commandline
+# install dependencies
+pip install -r requirements.txt
+
 # run server
 python3 manage.py runserver 8000
+```
 
+## When edit models
+
+```commandline
 # create files for migration after editing models
 python3 manage.py makemigrations
 
@@ -35,7 +56,10 @@ python3 manage.py migrate
 ```commandline
 # create requirements.txt
 pip list --format=freeze > requirements.txt
+```
 
+## For run Testing
 
-
+```commandline
+python3 manage.py test
 ```

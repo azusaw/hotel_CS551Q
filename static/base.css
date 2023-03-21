@@ -1,0 +1,74 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #d2ecfa;
+    background-image: repeating-linear-gradient(-45deg,#fff, #fff 7px, transparent 0, transparent 14px);
+    margin: 0 auto;
+    color: orangered;
+    font-size: 15px;
+    padding-bottom: 3rem;
+}
+
+h1 {
+    text-align: center;
+    margin: 3rem 0;
+    line-height: 4.5rem;
+}
+
+h3 {
+    text-align: center;
+    margin: 3rem 0 1rem;
+    color: orangered;
+}
+
+p {
+    font-size: 18px;
+    padding: 1rem 0;
+    line-height: 2.8rem;
+    color: #2B3467;
+    margin-bottom: 1rem;
+}
+
+li {
+    font-size: 18px;
+    line-height: 2.8rem;
+    color: #2B3467;
+}
+
+a {
+    color: inherit;
+    decoration: none;
+}
+
+a:hover, a:visited {
+    color: inherit;
+    decoration: none;
+}
+
+img {
+    margin: 2rem 0;
+}
+
+table {
+    color: #666;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #2B3467;
+    color: white;
+    text-align: center;
+}
+
+th {
+    text-align:center;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select {
+    margin-bottom: 20px;
+}

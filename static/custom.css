@@ -1,0 +1,68 @@
+.container {
+    max-width: 860px;
+}
+
+.site-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+    color: white;
+    background-color: orangered;
+    border-radius: 0 0 15px 15px;
+}
+
+.nav-item {
+    color: white;
+    background-color: #2B3467;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    cursor: pointer;
+    background-color: orangered;
+}
+
+.nav-link {
+    font-size: 18px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover {
+    font-weight: 600;
+    color: white;
+}
+
+.btn {
+    width: 500px;
+    background-color: orangered;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    border-color: orangered;
+    background-color: white;
+    color: orangered;
+    font-weight: 500;
+}
+
+.text-box {
+    background-color: #d2ecfa;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.tag {
+    padding: 5px;
+    margin: 2em 0;
+    background-color: aliceblue;
+    border-radius: 5px;
+    font-size: 16px;
+    color: orangered;
+    font-weight: 500;
+    cursor: pointer;
+}
