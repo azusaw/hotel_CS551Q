@@ -1,4 +1,39 @@
 {% extends "base.html" %}
+{% block title %}
+Disaster Info Website
+{% endblock %}
 {% block page_content %}
-<h1>Disaster Info App</h1>
+<h1>Disaster Info Website</h1>
+<div class="text-box">
+    <p>The website provides details of the various disasters which were happened around the world.</p>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">
+                <span class="tag">/home</span>
+            </a>... Welcome page
+        </li>
+        <li>
+            <a href="{% url 'all' %}">
+                <span class="tag">/all</span>
+            </a> ... You can find all disaster data between 1960 to 2021.
+        </li>
+        <li>
+            <a href="{% url 'detail' disasterNo='2011-0082-JPN' %}">
+                <span class="tag">/detail/[disasterNo]</span>
+            </a>... You can find a detail data by clicking
+            DisasterNo in the table..
+        </li>
+        <li>
+            <a href="{% url 'comparison' %}">
+                <span class="tag">/search</span>
+            </a>... You can search disasters by some conditions.
+        </li>
+        <li>
+            <a href="{% url 'comparison' %}">
+                <span class="tag">/comparison</span>
+            </a> ... You can compare disaster data by year, continent, region,
+            and disaster type.
+        </li>
+    </ul>
+</div>
 {% endblock %}

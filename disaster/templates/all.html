@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% block title %}
+All Disaster Data
+{% endblock %}
 {% block page_content %}
 <h1>All Disaster Data</h1>
 {% include 'disaster_table.html' with rows=disasters %}
