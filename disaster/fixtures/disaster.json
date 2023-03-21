@@ -1,0 +1,55 @@
+[
+    {
+        "model": "disaster.Continent",
+        "pk": "Asia",
+        "fields": {
+            "id":"Asia"
+        }
+    },
+    {
+        "model": "disaster.Region",
+        "pk": "SouthernAsia",
+        "fields": {
+            "id":"SouthernAsia",
+            "continent": "Asia"
+        }
+    },
+    {
+        "model": "disaster.Type",
+        "pk": "Flood",
+        "fields": {
+            "id":"Flood"
+        }
+    },
+    {
+        "model": "disaster.Disaster",
+        "pk": "2020-0055-WEF",
+        "fields": {
+            "disasterNo": "2020-0055-WEF",
+            "year": 2020,
+            "seq": 15,
+            "group": "Natural",
+            "subgroup": "A",
+            "type": "Flood",
+            "subtype": null,
+            "eventName": "Ada",
+            "country": "Bangladesh",
+            "iso": "WEF",
+            "region": "SouthernAsia",
+            "continent": "Asia",
+            "location": "Bangladesh",
+            "startYear": 2020,
+            "startMonth": 2,
+            "startDay": 5,
+            "endYear": 2020,
+            "endMonth": 3,
+            "endDay": 1,
+            "totalDeaths": 500,
+            "injured": 200,
+            "affected": 90000,
+            "totalAffected": 23456,
+            "homeless": 666,
+            "damageCost": 7876
+        }
+    }
+]
