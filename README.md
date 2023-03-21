@@ -41,6 +41,11 @@ pip install -r requirements.txt
 python3 manage.py runserver 8000
 ```
 
+## For run Testing
+```commandline
+python3 manage.py test
+```
+
 ## When edit models
 
 ```commandline
