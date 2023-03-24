@@ -1,9 +1,39 @@
 {% extends "base.html" %}
+
+
 {% block title %}
 Detail: {{disaster.disasterNo}
 {% endblock %}
+
 {% block page_content %}
 <h1>Detail: {{disaster.disasterNo}}</h1>
+{% load static %}
+<div id="mapid"></div>
+<div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+    <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <script type = "text/javascript">
+        var map = L.map('mapid').setView([0, 0], 2);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            accessToken: 'pk.eyJ1Ijoic2NoYXJsYXUiLCJhIjoiY2szYnVuOWxnMDl4bDNmdWlhNGxtdHFwNCJ9.AscLdeuE02X-3W7Mtvos8A'
+        }).addTo(map);
+
+        var taggingIcon = L.icon({
+            iconUrl: "{% static 'images/placeholder-yellow.png' %}",
+            iconSize: [35, 35]
+        });
+        <!-- if (geoLocation) { -->
+            var marker = L.marker([{{ geoLocation.latitude }}, {{ geoLocation.longitude }}], {icon: taggingIcon}).addTo(map);
+        <!-- }; -->
+    </script>
+<p><a href={% url 'disaster_edit' disasterNo=disaster.disasterNo %}>Edit this disaster</a>
+    <a href={% url 'disaster_delete' disasterNo=disaster.disasterNo %}>delete this disaster</a>
+</p>
+
 <table class="table align-middle my-3">
     <tr>
         <th scope="col">DisasterNo</th>
@@ -107,3 +137,5 @@ Detail: {{disaster.disasterNo}
     </tr>
 </table>
 {% endblock %}
+
+

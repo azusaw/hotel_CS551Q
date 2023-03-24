@@ -51,7 +51,7 @@ INSERT INTO disaster_type (id) VALUES
 ;
 
 INSERT INTO disaster_subgroup (id) VALUES
-	 ('Hydrogical'),
+	 ('Hydrological'),
 	 ('Meteological'),
 	 ('Climatological'),
 	 ('Geophysical'),

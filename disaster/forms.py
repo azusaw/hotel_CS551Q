@@ -1,7 +1,12 @@
 from django import forms
 
-from .models import Type, Continent, Region
+from .models import Type, Continent, Region, Disaster
 
+class DisasterForm(forms.ModelForm):
+
+    class Meta:
+        model = Disaster
+        fields = '__all__'
 
 class SearchConditionForm(forms.Form):
     """ Form used for search conditions in /search page """

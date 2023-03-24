@@ -1,9 +1,38 @@
 from django.db.models import Count, Q
-from django.shortcuts import render, get_object_or_404
-
-from .forms import SearchConditionForm
+from django.shortcuts import redirect, render, get_object_or_404
+from geopy.geocoders import Nominatim
+from .forms import SearchConditionForm, DisasterForm
 from .models import Disaster
+from django.db.models import F
 
+def disaster_new(request):
+    if request.method=="POST":
+        form = DisasterForm(request.POST)
+        if form.is_valid():
+            disaster = form.save(commit=False)
+            disaster.save()
+            return redirect('detail', disasterNo=disaster.disasterNo)
+    else:
+        form = DisasterForm()
+    return render(request, 'disaster_edit.html', {'form':form})
+
+def disaster_edit(request, disasterNo):
+    disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
+
+    if request.method=="POST":
+        form = DisasterForm(request.POST, instance=disaster)
+        if form.is_valid():
+            disaster = form.save(commit=False)
+            disaster.save()
+            return redirect('detail', disasterNo=disaster.disasterNo)
+    else:
+        form = DisasterForm(instance=disaster)
+    return render(request, 'disaster_edit.html', {'form':form, 'disaster':disaster})
+
+def disaster_delete(request, disasterNo):
+    disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
+    disaster.delete()
+    return redirect('all')
 
 def home(request):
     return render(request, 'home.html')
@@ -16,7 +45,12 @@ def disaster_list(request):
 
 def disaster_detail(request, disasterNo):
     disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
-    return render(request, 'disaster_detail.html', {'disaster': disaster})
+
+    # Convert text location to lat/long coordinates
+    geolocator = Nominatim(user_agent="disaster_detail")
+    geoLocation = geolocator.geocode(disaster.location)
+
+    return render(request, 'disaster_detail.html', {'disaster': disaster, 'geoLocation': {'latitude': geoLocation.latitude, 'longitude': geoLocation.longitude } if geoLocation else {} })
 
 
 def search(request):
@@ -82,3 +116,25 @@ def comparison(request):
         'continent_rows': continent_rows,
         'region_rows': region_rows
     })
+
+
+
+def disaster_map(disasterNo):
+    from django.db.models import F
+    from geopy.geocoders import Nominatim
+    from .models import Disaster
+
+    disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
+
+
+    # Convert text location to lat/long coordinates
+    geolocator = Nominatim(user_agent="disaster_detail")
+
+    location = geolocator.geocode(disaster.location)
+
+    disaster.location_lat = location.latitude
+    disaster.location_long = location.longitude
+    disaster.save()
+
+ # Add this line
+    return
