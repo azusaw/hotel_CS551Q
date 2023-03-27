@@ -1,7 +1,9 @@
 # Disaster information Website
+
 Team hotel_CS551Q
 
 ## Website
+
 https://disaster-info.onrender.com/
 
 ## Member
@@ -37,11 +39,15 @@ Then, start the server with this command.
 # install dependencies
 pip install -r requirements.txt
 
+# create database
+python3 manage.py parse_csv
+
 # run server
 python3 manage.py runserver 8000
 ```
 
 ## For run Testing
+
 ```commandline
 python3 manage.py test
 ```
