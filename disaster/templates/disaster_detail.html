@@ -15,12 +15,12 @@ Detail: {{disaster.disasterNo}
 <div style="text-align: center">
     <a href="{% url 'disaster_edit' disasterNo=disaster.disasterNo %}">
     <span class="btn" style="width: 300px">
-        <i class="fa-solid fa-plus mr-2"></i>Edit this disaster
+        <i class="fa-solid fa-pen-to-square mr-2"></i>Edit this disaster
     </span>
     </a>
     <a href="{% url 'disaster_delete' disasterNo=disaster.disasterNo %}">
     <span class="btn" style="width: 300px">
-        <i class="fa-solid fa-plus mr-2"></i>Delete this disaster
+        <i class="fa-solid fa-trash mr-2"></i>Delete this disaster
     </span>
     </a>
 </div>

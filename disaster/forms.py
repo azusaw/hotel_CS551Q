@@ -14,14 +14,16 @@ class DisasterForm(forms.ModelForm):
     def clean(self):
         # run the standard clean method first
         cleaned_data = super(DisasterForm, self).clean()
-        print(cleaned_data)
+
         for k, v in cleaned_data.items():
             if v == '':
                 cleaned_data[k] = None
-        print(cleaned_data)
+            if str(v).isdecimal():
+                cleaned_data[k] = int(v)
 
         return cleaned_data
 
+    # For '*' in required field
     required_css_class = 'required'
 
     # Get options from database
@@ -30,7 +32,7 @@ class DisasterForm(forms.ModelForm):
     regions = Region.objects.all()
 
     disasterNo = forms.CharField(
-        label="Subtype",
+        label="DisasterNo",
         widget=forms.widgets.TextInput(attrs={'class': 'form-control col-sm-5'})
     )
     year = forms.CharField(
@@ -114,11 +116,6 @@ class DisasterForm(forms.ModelForm):
     endDay = forms.CharField(
         required=False,
         label="End Day",
-        widget=forms.widgets.NumberInput(attrs={'class': 'form-control col-sm-5'})
-    )
-    totalDeath = forms.CharField(
-        required=False,
-        label="Total Deaths",
         widget=forms.widgets.NumberInput(attrs={'class': 'form-control col-sm-5'})
     )
     injured = forms.CharField(

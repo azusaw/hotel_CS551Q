@@ -25,8 +25,9 @@ def disaster_edit(request, disasterNo):
     if request.method == "POST":
         form = DisasterForm(request.POST, instance=disaster)
         if form.is_valid():
-            disaster = form.save(commit=False)
+            disaster = form.save()
             disaster.save()
+
             return redirect('detail', disasterNo=disaster.disasterNo)
     else:
         form = DisasterForm(instance=disaster)
