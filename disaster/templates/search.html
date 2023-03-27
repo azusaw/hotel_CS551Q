@@ -11,6 +11,6 @@ Search Data by Conditions
     </div>
 </form>
 {% if disasters %}
-{% include 'disaster_table.html' with rows=disasters %}
+{% include 'disaster_table.html' with rows=disasters cnt=cnt %}
 {% endif %}
 {% endblock %}

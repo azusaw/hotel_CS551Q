@@ -5,5 +5,5 @@ All Disaster Data
 {% block page_content %}
 <h1>All Disaster Data</h1>
 <p><a href={% url 'disaster_new' %}>Add a new Disaster</a></p>
-{% include 'disaster_table.html' with rows=disasters %}
+{% include 'disaster_table.html' with rows=disasters cnt=cnt %}
 {% endblock %}

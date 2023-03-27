@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Disasters: Disaster Edit</h1>
-    <p>DisasterNo: {{ disaster.disasterNo }}</p>
+<h1>Disasters: Disaster Edit</h1>
+<p>DisasterNo: {{ disaster.disasterNo }}</p>
 
-    <form method = "POST">
-        {% csrf_token %}
-        <!-- form.as_p将表单项包裹在<p>标签中 -->
-        {{ form.as_p}}
-        <button type="submit" name="submit">Save</button>
-    </form>
+<form method="POST">
+    {% csrf_token %}
+    <!-- form.as_p wraps form items in <p> tags -->
+    {{ form.as_p}}
+    <button type="submit" name="submit">Save</button>
+</form>
 {% endblock %}

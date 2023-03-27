@@ -1,26 +1,29 @@
-<table class="table align-middle my-3">
-    <thead>
-    <tr>
-        <th scope="col">DisasterNo</th>
-        <th scope="col">Type</th>
-        <th scope="col">Continent</th>
-        <th scope="col">Region</th>
-        <th scope="col">Country</th>
-        <th scope="col">Total<br/>Death</th>
-        <th scope="col">DamageCost<br/>($1K)</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for row in rows %}
-    <tr>
-        <td><a href="{% url 'detail' disasterNo=row.disasterNo %}"><b>{{row.disasterNo}}</b></a></td>
-        <td>{{row.type.id}}</td>
-        <td>{{row.continent.id}}</td>
-        <td>{{row.region.id}}</td>
-        <td>{{row.country}}</td>
-        <td>{{row.totalDeaths}}</td>
-        <td>{{row.damageCost}}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div>
+    <div class="align-right">{{cnt}} records.<div>
+    <table class="table align-middle my-3">
+        <thead>
+        <tr>
+            <th scope="col">DisasterNo</th>
+            <th scope="col">Type</th>
+            <th scope="col">Continent</th>
+            <th scope="col">Region</th>
+            <th scope="col">Country</th>
+            <th scope="col">Total<br/>Death</th>
+            <th scope="col">DamageCost<br/>($1K)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in rows %}
+        <tr>
+            <td><a href="{% url 'detail' disasterNo=row.disasterNo %}"><b>{{row.disasterNo}}</b></a></td>
+            <td>{{row.type.id}}</td>
+            <td>{{row.continent.id}}</td>
+            <td>{{row.region.id}}</td>
+            <td>{{row.country}}</td>
+            <td>{{row.totalDeaths}}</td>
+            <td>{{row.damageCost}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>

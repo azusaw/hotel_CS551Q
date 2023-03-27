@@ -1,12 +1,13 @@
 from django.db.models import Count, Q
 from django.shortcuts import redirect, render, get_object_or_404
 from geopy.geocoders import Nominatim
+
 from .forms import SearchConditionForm, DisasterForm
 from .models import Disaster
-from django.db.models import F
+
 
 def disaster_new(request):
-    if request.method=="POST":
+    if request.method == "POST":
         form = DisasterForm(request.POST)
         if form.is_valid():
             disaster = form.save(commit=False)
@@ -14,12 +15,13 @@ def disaster_new(request):
             return redirect('detail', disasterNo=disaster.disasterNo)
     else:
         form = DisasterForm()
-    return render(request, 'disaster_edit.html', {'form':form})
+    return render(request, 'disaster_edit.html', {'form': form})
+
 
 def disaster_edit(request, disasterNo):
     disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
 
-    if request.method=="POST":
+    if request.method == "POST":
         form = DisasterForm(request.POST, instance=disaster)
         if form.is_valid():
             disaster = form.save(commit=False)
@@ -27,12 +29,14 @@ def disaster_edit(request, disasterNo):
             return redirect('detail', disasterNo=disaster.disasterNo)
     else:
         form = DisasterForm(instance=disaster)
-    return render(request, 'disaster_edit.html', {'form':form, 'disaster':disaster})
+    return render(request, 'disaster_edit.html', {'form': form, 'disaster': disaster})
 
-def disaster_delete(request, disasterNo):
+
+def disaster_delete(disasterNo):
     disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
     disaster.delete()
     return redirect('all')
+
 
 def home(request):
     return render(request, 'home.html')
@@ -40,7 +44,7 @@ def home(request):
 
 def disaster_list(request):
     disasters = Disaster.objects.all()
-    return render(request, 'all.html', {'disasters': disasters})
+    return render(request, 'all.html', {'disasters': disasters, 'cnt': len(disasters)})
 
 
 def disaster_detail(request, disasterNo):
@@ -50,7 +54,9 @@ def disaster_detail(request, disasterNo):
     geolocator = Nominatim(user_agent="disaster_detail")
     geoLocation = geolocator.geocode(disaster.location)
 
-    return render(request, 'disaster_detail.html', {'disaster': disaster, 'geoLocation': {'latitude': geoLocation.latitude, 'longitude': geoLocation.longitude } if geoLocation else {} })
+    return render(request, 'disaster_detail.html', {'disaster': disaster,
+                                                    'geoLocation': {'latitude': geoLocation.latitude,
+                                                                    'longitude': geoLocation.longitude} if geoLocation else {}})
 
 
 def search(request):
@@ -101,7 +107,7 @@ def search(request):
     if len(request.GET) > 0:
         disasters = Disaster.objects.all().filter(*where).order_by(order)
 
-    return render(request, 'search.html', {'disasters': disasters, 'form': form})
+    return render(request, 'search.html', {'disasters': disasters, 'cnt': len(disasters), 'form': form})
 
 
 def comparison(request):
@@ -118,14 +124,11 @@ def comparison(request):
     })
 
 
-
 def disaster_map(disasterNo):
-    from django.db.models import F
     from geopy.geocoders import Nominatim
     from .models import Disaster
 
     disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
-
 
     # Convert text location to lat/long coordinates
     geolocator = Nominatim(user_agent="disaster_detail")
@@ -135,6 +138,5 @@ def disaster_map(disasterNo):
     disaster.location_lat = location.latitude
     disaster.location_long = location.longitude
     disaster.save()
-
- # Add this line
+    
     return
