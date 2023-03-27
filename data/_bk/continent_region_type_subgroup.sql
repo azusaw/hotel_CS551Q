@@ -50,14 +50,4 @@ INSERT INTO disaster_type (id) VALUES
 	 ('Wildfire')
 ;
 
-INSERT INTO disaster_subgroup (id) VALUES
-	 ('Hydrological'),
-	 ('Meteological'),
-	 ('Climatological'),
-	 ('Geophysical'),
-	 ('Biological'),
-	 ('Extra-terrestrial')
-;
-
-
 
