@@ -1,0 +1,34 @@
+{% load static %}
+<div id="mapid"></div>
+<div style="text-align: right">
+    Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
+    <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+</div>
+<script type="text/javascript">
+
+    try {
+        var map = L.map('mapid').setView([0, 0], 2);
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+            maxZoom: 18,
+            id: 'mapbox/streets-v11',
+            accessToken: 'pk.eyJ1Ijoic2NoYXJsYXUiLCJhIjoiY2szYnVuOWxnMDl4bDNmdWlhNGxtdHFwNCJ9.AscLdeuE02X-3W7Mtvos8A'
+        }).addTo(map);
+
+        var taggingIcon = L.icon({
+            iconUrl: "{% static 'images/placeholder-yellow.png' %}",
+            iconSize: [35, 35]
+        });
+
+        var marker = L.marker([{{ geoLocation.latitude }}, {{ geoLocation.longitude }}], {icon: taggingIcon}).addTo(map);
+    } catch(Exception e) {
+        console.log(err)
+    }
+
+
+</script>
+
+
+

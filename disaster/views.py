@@ -1,5 +1,6 @@
 from django.db.models import Count, Q
 from django.shortcuts import redirect, render, get_object_or_404
+from geopy.exc import GeocoderServiceError
 from geopy.geocoders import Nominatim
 
 from .forms import SearchConditionForm, DisasterForm
@@ -32,7 +33,7 @@ def disaster_edit(request, disasterNo):
     return render(request, 'disaster_edit.html', {'form': form, 'disaster': disaster})
 
 
-def disaster_delete(disasterNo):
+def disaster_delete(_request, disasterNo):
     disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
     disaster.delete()
     return redirect('all')
@@ -51,12 +52,22 @@ def disaster_detail(request, disasterNo):
     disaster = get_object_or_404(Disaster, disasterNo=disasterNo)
 
     # Convert text location to lat/long coordinates
-    geolocator = Nominatim(user_agent="disaster_detail")
-    geoLocation = geolocator.geocode(disaster.location)
+    geoLocator = Nominatim(user_agent="disaster_detail")
+    geoLocation = None
 
-    return render(request, 'disaster_detail.html', {'disaster': disaster,
-                                                    'geoLocation': {'latitude': geoLocation.latitude,
-                                                                    'longitude': geoLocation.longitude} if geoLocation else {}})
+    try:
+        # SSL error occur when run server as 'localhost'
+        geoLocation = geoLocator.geocode(disaster.location)
+    except GeocoderServiceError:
+        print("Error: Geolocation module is not available in your environment.")
+
+    return render(request, 'disaster_detail.html', {
+        'disaster': disaster,
+        'geoLocation': {
+            'latitude': geoLocation.latitude,
+            'longitude': geoLocation.longitude
+        } if geoLocation else {}
+    })
 
 
 def search(request):
@@ -138,5 +149,5 @@ def disaster_map(disasterNo):
     disaster.location_lat = location.latitude
     disaster.location_long = location.longitude
     disaster.save()
-    
+
     return
