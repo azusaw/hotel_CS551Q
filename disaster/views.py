@@ -85,7 +85,7 @@ def search(request):
     if "continent" in request.GET:
         continent = request.GET["continent"]
     if "region" in request.GET:
-        continent = request.GET["region"]
+        region = request.GET["region"]
     if "type" in request.GET:
         d_type = request.GET["type"]
     if "order" in request.GET:
