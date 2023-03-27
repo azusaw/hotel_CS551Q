@@ -1,12 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Disasters: Disaster Edit</h1>
-<p>DisasterNo: {{ disaster.disasterNo }}</p>
-
-<form method="POST">
-    {% csrf_token %}
-    <!-- form.as_p wraps form items in <p> tags -->
-    {{ form.as_p}}
-    <button type="submit" name="submit">Save</button>
+<h1>Disasters: Edit {{ disaster.disasterNo }}</h1>
+<form method="POST" class="row" class="form-control col-sm-5">
+    {{ form }}
+    <div class="align-center">
+        <input type="submit" class="btn btn-lg my-6" value="Save">
+    </div>
 </form>
 {% endblock %}
