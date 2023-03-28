@@ -4,9 +4,9 @@ Team hotel_CS551Q
 
 ## Website
 
-https://disaster-info.onrender.com/
+https://disaster-info-app.herokuapp.com/
 
-## Member
+## Members
 
 `@azusaw` AZUSA WATANABE
 
@@ -23,7 +23,7 @@ https://disaster-info.onrender.com/
 [ALL NATURAL DISASTERS 1900-2021 / EOSDIS](https://www.kaggle.com/datasets/brsdincer/all-natural-disasters-19002021-eosdis)
 by Kaggle
 
-## For Starting Server
+## Starting Server
 
 Create `.env` file in root directory with below contents.
 
@@ -44,25 +44,28 @@ python3 manage.py parse_csv
 
 # run server
 python3 manage.py runserver 8000
+
+# run server in Codio
+python3 manage.py runserver 0.0.0.0:8000
 ```
 
-## For run Testing
+## Running Tests
 
 ```commandline
 python3 manage.py test
 ```
 
-## When edit models
+## When Updated models
 
 ```commandline
-# create files for migration after editing models
+# create files for migration
 python3 manage.py makemigrations
 
 # execute migration
 python3 manage.py migrate
 ```
 
-## For deployment in render
+## For Deployment in Heroku, render
 
 ```commandline
 # create requirements.txt
