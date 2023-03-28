@@ -10,29 +10,37 @@ Disaster Info Website
         <li>
             <a href="{% url 'home' %}">
                 <span class="tag">/home</span>
-            </a>... Welcome page
+            </a>&ensp;... Welcome page!
         </li>
         <li>
             <a href="{% url 'all' %}">
                 <span class="tag">/all</span>
-            </a> ... You can find all disaster data between 1960 to 2021.
+            </a>&ensp;... You can find all disaster data between 1960 and 2021.
+        </li>
+        <li>
+            <a href="{% url 'disaster_new' %}">
+                <span class="tag">/new</span>
+            </a>&ensp;... You can register new disaster data.
         </li>
         <li>
             <a href="{% url 'detail' disasterNo='2011-0082-JPN' %}">
                 <span class="tag">/detail/[disasterNo]</span>
-            </a>... You can find a detail data by clicking
-            DisasterNo in the table..
+            </a>&ensp;... You can find a detail data by clicking DisasterNo in the table.
+        </li>
+        <li>
+            <a href="{% url 'disaster_edit' disasterNo='2011-0082-JPN' %}">
+                <span class="tag">/edit/[disasterNo]</span>
+            </a>&ensp;... You can edit a disaster data which already exist.
         </li>
         <li>
             <a href="{% url 'comparison' %}">
                 <span class="tag">/search</span>
-            </a>... You can search disasters by some conditions.
+            </a>&ensp;... You can search disasters by multiple conditions.
         </li>
         <li>
             <a href="{% url 'comparison' %}">
                 <span class="tag">/comparison</span>
-            </a> ... You can compare disaster data by year, continent, region,
-            and disaster type.
+            </a> ... You can compare disaster data by year, continent, region, and disaster type.
         </li>
     </ul>
 </div>

@@ -8,7 +8,7 @@ urlpatterns = [
     path('detail/<slug:disasterNo>/', views.disaster_detail, name='detail'),
     path('search', views.search, name='search'),
     path('comparison', views.comparison, name='comparison'),
-    path('disaster/new', views.disaster_new, name='disaster_new'),
-    path('disaster/<slug:disasterNo>/edit', views.disaster_edit, name='disaster_edit'),
-    path('disaster/<slug:disasterNo>/delete', views.disaster_delete, name='disaster_delete'),
+    path('new', views.disaster_new, name='disaster_new'),
+    path('edit/<slug:disasterNo>', views.disaster_edit, name='disaster_edit'),
+    path('delete/<slug:disasterNo>', views.disaster_delete, name='disaster_delete'),
 ]
