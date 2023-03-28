@@ -24,7 +24,7 @@
 
         var marker = L.marker([{{ geoLocation.latitude }}, {{ geoLocation.longitude }}], {icon: taggingIcon}).addTo(map);
     } catch(Exception e) {
-        console.log(err)
+        console.log(e)
     }
 
 
