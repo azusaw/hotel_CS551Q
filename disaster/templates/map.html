@@ -23,9 +23,11 @@
         });
 
         var marker = L.marker([{{ geoLocation.latitude }}, {{ geoLocation.longitude }}], {icon: taggingIcon}).addTo(map);
-    } catch(Exception e) {
+    } catch (e) {
         console.log(e)
     }
+
+
 
 
 </script>

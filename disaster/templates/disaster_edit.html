@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Disasters: Edit {{ disaster.disasterNo }}</h1>
+<h1>Edit: {{ disaster.disasterNo }}</h1>
 <form method="POST" class="row px-4">
     {% csrf_token %}
     {{ form }}
