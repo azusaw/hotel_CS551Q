@@ -11,6 +11,23 @@ Disaster Info Website
         <img src="{% static 'images/team_hotel_logo.png' %}" width="100" style="margin: 0.5rem"/>
     </span>
 </div>
+<div style="text-align: center">
+    {% if user.is_authenticated %}
+    <a href = "{% url 'logout' %}">
+        <div class="btn btn-lg my-6">
+            <i class="fa-solid fa-plus mr-2"></i>Log Out
+        </div>
+    </a>
+    {% else %}
+    <a href = "{% url 'login' %}">
+        <div class="btn btn-lg my-6">
+            <i class="fa-solid fa-plus mr-2"></i>Log In
+        </div>
+    </a>
+    {% endif %}
+
+</div>
+
 <div class="text-box">
     <ul>
         <li>

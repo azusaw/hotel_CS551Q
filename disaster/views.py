@@ -1,10 +1,45 @@
 from django.db.models import Count, Q
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 from geopy.exc import GeocoderServiceError
 from geopy.geocoders import Nominatim
-
-from .forms import SearchConditionForm, DisasterForm
 from .models import Disaster
+from .forms import SearchConditionForm, DisasterForm, SignUpForm
+from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
+
+
+def signup(request):
+    form = SignUpForm(request.POST)
+    if form.is_valid():
+        user = form.save()
+        user.refresh_from_db()
+        user.customer.first_name = form.cleaned_data.get('first_name')
+        user.customer.last_name = form.cleaned_data.get('last_name')
+        user.save()
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(username=username, password= password)
+        login(request, user)
+        return redirect('/')
+    return render(request, 'signup.html', {'form': form})
+
+@login_required
+def login(request):
+    user = request.user
+    if user.is_authenticated & user.is_staff:
+        return render(request, 'home.html')
+    else:
+        return redirect('login')
+
+def goto_index_view(url):
+   return HttpResponseRedirect(url)
+
+def logout(request):
+    response = goto_index_view('/')
+    response.delete_cookie("sessionid")
+    return response
 
 
 def disaster_new(request):

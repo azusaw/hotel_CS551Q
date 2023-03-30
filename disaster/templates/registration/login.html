@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+Disaster Info Website
+{% endblock %}
+{% block page_content %}
+
+<h1>Login</h1>
+<div style="text-align: center">
+    {% if form.errors %}
+       <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    {%if next %}
+    {% if request.user.is_authenticated %}
+    <!-- proceed to requested page-->
+    {% else %}
+    <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% endif %}
+  {% endif %}
+    <div style="font-size: 18px">
+      <p >Please login, or <a href = "{% url 'signup' %}">Register</a> to see this page.</p>
+    </div>
+  <form method="POST" class="row px-4" action="{% url 'login' %}">
+    {% csrf_token %}
+
+    <p>
+      {{ form.username.label_tag }}
+      {{ form.username }}
+    </p>
+    <p>
+      {{form.password.label_tag }}
+      {{form.password }}
+    </p>
+    <p>
+        <input class="btn btn-lg my-6" type="submit" name="Login"/>
+        <input class="btn btn-lg my-6" type="hidden" name='next' value="{{ next }}"/>
+    </p>
+
+    </div>
+</form>
+
+
+{% endblock %}

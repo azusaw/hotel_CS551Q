@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}
+Disaster Info Website
+{% endblock %}
+{% block page_content %}
+
+<h1>Registration</h1>
+<div style="text-align: center">
+  <form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <p>
+      {{ field.label_tag }}
+      {{ field }}
+      {% if field.help_text %}
+
+      {% endif %}
+
+    </p>
+    {% endfor %}
+
+      <input class="btn btn-lg my-6" type="submit" name="Sign Up"/>
+
+  </form>
+</div>
+{% endblock %}
