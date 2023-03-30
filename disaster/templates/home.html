@@ -1,11 +1,17 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}
 Disaster Info Website
 {% endblock %}
 {% block page_content %}
 <h1>Global Disaster Info Website</h1>
+<div class="team-box">
+    This website provides details of the various disasters which happened around the world.<br/>
+    <span style="font-weight: bold; font-size: 1.2rem">Developed by
+        <img src="{% static 'images/team_hotel_logo.png' %}" width="100" style="margin: 0.5rem"/>
+    </span>
+</div>
 <div class="text-box">
-    <p>This website provides details of the various disasters which happened around the world.</p>
     <ul>
         <li>
             <a href="{% url 'home' %}">
