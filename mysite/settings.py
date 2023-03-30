@@ -29,7 +29,8 @@ SECRET_KEY = 'django-insecure-_s%+0a#ben#xr*^c1=il#4f8*q&ki$44l0v8pt*g^9!6e=6rp-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['disaster-info.onrender.com', 'disaster-info-app.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['disaster-info.onrender.com', 'disaster-info-app.herokuapp.com',
+                 'monicasalad-beatlessabine-8000.codio-box.uk', '127.0.0.1']
 
 # Application definition
 
