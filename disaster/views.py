@@ -1,17 +1,22 @@
-from django.db.models import Count, Q
-from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
+from django.db.models import Count, Q
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect, render, get_object_or_404
 from geopy.exc import GeocoderServiceError
 from geopy.geocoders import Nominatim
-from .models import Disaster
+
 from .forms import SearchConditionForm, DisasterForm, SignUpForm
-from django.http import HttpResponseRedirect
-from django.contrib.auth.models import User
+from .models import Disaster
 
 
 def signup(request):
     form = SignUpForm(request.POST)
+    errors = []
+
+    if request.method == "POST":
+        errors = form.errors
+
     if form.is_valid():
         user = form.save()
         user.refresh_from_db()
@@ -20,10 +25,13 @@ def signup(request):
         user.save()
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
-        user = authenticate(username=username, password= password)
+        user = authenticate(username=username, password=password)
         login(request, user)
         return redirect('/')
-    return render(request, 'signup.html', {'form': form})
+
+    return render(request, 'signup.html',
+                  {'form': form, 'password_helper': form.fields["password1"].help_text, 'errors': errors})
+
 
 @login_required
 def login(request):
@@ -33,8 +41,10 @@ def login(request):
     else:
         return redirect('login')
 
+
 def goto_index_view(url):
-   return HttpResponseRedirect(url)
+    return HttpResponseRedirect(url)
+
 
 def logout(request):
     response = goto_index_view('/')

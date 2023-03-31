@@ -1,11 +1,10 @@
-from django.test import Client, TestCase
-from django.urls import reverse
-from django.utils import timezone
-from ..models import Disaster, Type, Region, Continent
+from django.test import TestCase
+
 from ..forms import SearchConditionForm
+from ..models import Type, Region, Continent
+
 
 class FormTest(TestCase):
-
     fixtures = ['disaster.json']
 
     def setUp(self):
@@ -23,10 +22,3 @@ class FormTest(TestCase):
         }
         form = SearchConditionForm(data=data)
         self.assertTrue(form.is_valid())
-
-
-
-
-
-
-

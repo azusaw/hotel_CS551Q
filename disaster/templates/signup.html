@@ -1,26 +1,30 @@
 {% extends "base.html" %}
 {% block title %}
-Disaster Info Website
+Sign Up User
 {% endblock %}
 {% block page_content %}
 
-<h1>Registration</h1>
-<div style="text-align: center">
-  <form method="post">
-    {% csrf_token %}
-    {% for field in form %}
-    <p>
-      {{ field.label_tag }}
-      {{ field }}
-      {% if field.help_text %}
-
-      {% endif %}
-
-    </p>
-    {% endfor %}
-
-      <input class="btn btn-lg my-6" type="submit" name="Sign Up"/>
-
-  </form>
+<h1>Sign Up User</h1>
+<div style="text-align: center; max-width: 580px; margin: 0 auto;">
+    <form method="post">
+        {% if errors %}
+        <div class="alert alert-danger" role="alert">
+            {{errors}}
+        </div>
+        {% endif %}
+        {% csrf_token %}
+        <div class="my-4">
+            {% for field in form %}
+            <div>
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
+            {% endfor %}
+        </div>
+        <div class="alert alert-info">
+            {{ password_helper }}
+        </div>
+        <input class="btn btn-lg my-6" type="submit" name="SignUp"/>
+    </form>
 </div>
 {% endblock %}

@@ -65,6 +65,10 @@
     margin-top: 2rem;
 }
 
+.text-box ul {
+    line-height: 2.8rem;
+}
+
 .tag {
     padding: 5px;
     margin: 2em 0;
@@ -89,3 +93,4 @@ label.required::after {
     border-width: 1px;
     border-color: #2B3467;
 }
+

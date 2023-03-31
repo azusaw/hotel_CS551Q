@@ -28,9 +28,14 @@ p {
     margin-bottom: 1rem;
 }
 
+ul {
+    margin-bottom: 0;
+}
+
 li {
+    text-align: left; !important
     font-size: 18px;
-    line-height: 2.8rem;
+    line-height: 2rem;
     color: #2B3467;
 }
 
