@@ -30,33 +30,51 @@ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0v
 </head>
 <body>
     <div class="container">
-        <div class="site-title">Disasters in the world 1970 - 2021 </div>
-        <ul class="nav nav-tabs nav-justified">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">
-                    <i class="fa-solid fa-house mr-1"></i>
-                    home
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'all' %}">
-                    <i class="fa-solid fa-earth-americas mr-1"></i>
-                    all data
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'search' %}">
-                    <i class="fa-solid fa-magnifying-glass mr-1"></i>
-                    search
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'chart' %}">
-                    <i class="fa-solid fa-chart-simple mr-1"></i>
-                    charts
-                </a>
-            </li>
-        </ul>
+        <div class="site-title">Disasters in the world 1970 - 2021</div>
+        <div style="text-align: right">
+            {% if user.is_authenticated %}
+            {{ user.username }}&emsp;
+            <a href="{% url 'logout' %}">
+                <div class="btn-w my-6">
+                    <i class="fa-solid fa-plus mr-2"></i>Log Out
+                </div>
+            </a>
+            {% else %}
+            <a href="{% url 'login' %}">
+                <div class="btn-w my-6">
+                    <i class="fa-solid fa-plus mr-2"></i>Log In
+                </div>
+            </a>
+            {% endif %}
+        </div>
+        <div>
+            <ul class="nav nav-tabs nav-justified">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">
+                        <i class="fa-solid fa-house mr-1"></i>
+                        home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'all' %}">
+                        <i class="fa-solid fa-earth-americas mr-1"></i>
+                        all data
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'search' %}">
+                        <i class="fa-solid fa-magnifying-glass mr-1"></i>
+                        search
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'chart' %}">
+                        <i class="fa-solid fa-chart-simple mr-1"></i>
+                        charts
+                    </a>
+                </li>
+            </ul>
+        </div>
         {% block content %}
             {% block page_content %}
             {% endblock %}

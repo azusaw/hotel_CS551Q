@@ -5,39 +5,37 @@ Disaster Info Website
 {% block page_content %}
 
 <h1>Login</h1>
-<div style="text-align: center">
+<div style="text-align: center; max-width: 580px; margin: 0 auto;">
     {% if form.errors %}
-       <p>Your username and password didn't match. Please try again.</p>
+    <div class="alert alert-danger" role="alert">
+        Your username and password didn't match. Please try again.
+    </div>
     {% endif %}
     {%if next %}
     {% if request.user.is_authenticated %}
     <!-- proceed to requested page-->
     {% else %}
     <p>Your account doesn't have access to this page. To proceed,
-      please login with an account that has access.</p>
+        please login with an account that has access.</p>
     {% endif %}
-  {% endif %}
+    {% endif %}
     <div style="font-size: 18px">
-      <p >Please login, or <a href = "{% url 'signup' %}">Register</a> to see this page.</p>
+        <p>Please login, or <a href="{% url 'signup' %}" style="font-weight: bold;">Register</a> to see this page.</p>
     </div>
-  <form method="POST" class="row px-4" action="{% url 'login' %}">
-    {% csrf_token %}
-
-    <p>
-      {{ form.username.label_tag }}
-      {{ form.username }}
-    </p>
-    <p>
-      {{form.password.label_tag }}
-      {{form.password }}
-    </p>
-    <p>
-        <input class="btn btn-lg my-6" type="submit" name="Login"/>
-        <input class="btn btn-lg my-6" type="hidden" name='next' value="{{ next }}"/>
-    </p>
-
-    </div>
-</form>
+    <form method="POST" class="row px-4" action="{% url 'login' %}">
+        {% csrf_token %}
+        <p>
+            {{ form.username.label_tag }}
+            {{ form.username }}
+        </p>
+        <p>
+            {{form.password.label_tag }}
+            {{form.password }}
+        </p>
+        <input class="btn btn-lg" style="margin: 1rem auto" type="submit" name="Login"/>
+        <input type="hidden" name='next' value="{{ next }}"/>
+    </form>
+</div>
 
 
 {% endblock %}
